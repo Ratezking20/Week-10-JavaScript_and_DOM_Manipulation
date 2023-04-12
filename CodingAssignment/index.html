@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html style= "margin: 0" lang="en">
+<head class="container">
+    
+    
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="index.html">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+
+    
+</head> 
+
+<body style="margin: 0; padding: 0;" class = "container-fluid">
+    
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
+        
+        <a class="navbar-brand" href="index.html"><p style="font-size: larger;">Social<span style="float: right; font-size:small; vertical-align: text-bottom;">.me</span></a>
+               
+    </nav>
+
+    <p style="margin: 10px">Let your friends know what you've been up to! <br>Share a post or a picture on your feed post. <br></p>
+    
+
+    <div style="margin: 20px" class="row">
+        <div class="col-lg-4 col-lg-offset-4">
+            
+                <input id="textbox" class="container form-control" onkeypress="onType()" style="height: 50px; width: 600px" type="text"/>
+                <span class="input-group-btn">
+                    <button onclick="addPost()" class="btn btn-outline-success" id="add">Add New Post</button>
+                   
+                    
+                </span>
+        
+        </div>
+    </div> <br>
+
+    <ul id="post-container">
+    </ul>
+
+    <script>
+
+    let postId = 0;
+    
+    document.getElementById('add').addEventListener('click', () => { // If the user clicks the add button
+     var feed = document.getElementById('post-container');
+     var newFeedPost = document.createElement('li');  // The .createElement creates an element in the html page using JavaScript.
+     newFeedPost.innerHTML = document.getElementById('textbox').value;
+     newFeedPost.textContent = textbox.value
+     newFeedPost.setAttribute('id', postId++);
+     
+     feed.appendChild(newFeedPost);
+            textbox.value= ""
+     });
+
+        function onType(){
+            if(event.which == 13){ // If user presses The enter key.
+                var feed = document.getElementById('post-container');
+                var newFeedPost = document.createElement('li');  // The .createElement creates an element in the html page using JavaScript.
+                newFeedPost.innerHTML = document.getElementById('textbox').value;
+                feed.appendChild(newFeedPost);
+                textbox.value= "";
+            };
+        }
+    
+    </script>
+    
+<script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+<script src="node_modules/jquery/dist/jquery.js"></script>
+</body>
+</html>
